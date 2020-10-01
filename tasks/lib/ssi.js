@@ -176,6 +176,9 @@ module.exports = function (grunt) {
 
         fullPath = fullPath + this.settings.fileSep + include.path;
 
+        // Selfishly fork to make all Windows style slashes in a path proper slashes.
+        fullPath = fullPath.replace( "\\", '/' );
+
         fullPath = path.normalize(fullPath);
 
         return fullPath;
